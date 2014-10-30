@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       Harvest reports improvements for harvestapp.com, see www.getharvest.com
 // @namespace  http://www.prosperity247.com/
-// @version    0.21
-// @description  Add's addtional buttons into the DOM that allows us to navigate around harvest more easily
+// @version    0.22
+// @description  Add's additional buttons into the DOM that allows us to navigate around harvest more easily
 // @match      https://*.harvestapp.com/reports*
 // @copyright  2014 Simon Jackson Prosperity 24.7
 // @require    http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js
@@ -40,11 +40,12 @@ $(function()
       });
       
             
-      console.log('Add Client Invoices Button');
+      console.log('Add Client Invices Button');
       function getClientIdFromUrl(url){
           return url.between('/reports/clients/','?');
       }
-      $(".ur-name a[href*=client],.pb-name a[href*=client],.td-item a[href*=client]").each(function() {
+      $(".ur-name a[href*=client],.pb-name a[href*=client],.td-item a[href*=client]")
+        .each(function() {
           var t =  $(this);
           var url = t.attr('href');
           
@@ -59,6 +60,18 @@ $(function()
       $("a.btn-action[href*=invoice]").each(function() {
           $(this).attr('target','_blank');
       }); 
+      
+      console.log('Add Top Toolbar Buttons');
+      var button = $('<a class="btn-action btn-small btn-chrome"><span>Remove Zero Items</span></a>')
+      .click(function () {
+          $('.ur-unhours a')
+          .filter(function(index) { return $(this).text() === "0.00"; })
+          .each(function() {
+              $(this).closest('tr').remove();
+          });
+      });
+      
+      $(".f-right").append(button);
   }
  );
 
