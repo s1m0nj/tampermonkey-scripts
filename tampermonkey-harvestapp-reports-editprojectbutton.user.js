@@ -129,12 +129,13 @@ $(function()
           }
           
           //Create date string s UK format.
+          debugger;
           var aYearAgo = new Date();
-          aYearAgo.setDate(aYearAgo.getDate() - 365);
-          aYearAgo = aYearAgo.getDate() + "/" + aYearAgo.getMonth() + "/" + aYearAgo.getFullYear();
+          aYearAgo.setDate(aYearAgo.getDate()-365);
+          aYearAgo = aYearAgo.getDate() + "/" + (1+aYearAgo.getMonth()) + "/" + aYearAgo.getFullYear();
           var yesterday = new Date();
           yesterday.setDate(yesterday.getDate()- 1);
-          yesterday = yesterday.getDate() + "/" + yesterday.getMonth() + "/" + yesterday.getFullYear();
+          yesterday = yesterday.getDate() + "/" +(1+yesterday.getMonth()) + "/" + yesterday.getFullYear();
           
           $("#import_hours").prop("checked", true);
           $("select#timeframe").val("Custom");
