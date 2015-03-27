@@ -110,8 +110,10 @@ $(function()
       
       
       function setupNewInvoiceSettings(){
+         debugger;
+         var retainerID = Form.getInputs("new_invoice_form","radio","draw_retainer_id").find(function(e){return e.checked});
           
-          if($(".select_project_checkbox").length > 1){
+         if( (!retainerID|| retainerID.value>0) && $(".select_project_checkbox").length > 1){
               $(".select_project_checkbox").each( function() {
                   var project = $(this);
                   project.prop("checked", false);
