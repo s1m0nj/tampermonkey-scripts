@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Harvest reports improvements for harvestapp.com, see www.getharvest.com
 // @namespace  http://www.prosperity247.com/
-// @version    0.25
+// @version    0.26
 // @description  Add"s addtional buttons into the DOM that allows us to navigate around harvest more easily
 // @match      https://*.harvestapp.com/reports*
 // @match      https://*.harvestapp.com/invoices/new*
